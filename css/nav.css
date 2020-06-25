@@ -1,0 +1,179 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    width: 100%;
+    height: 44px;
+    background-color: #141A27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.nav a{
+    color: white;
+    text-decoration: none;
+    width: 102px;
+    text-align: center;
+    font-family: "宋体";
+    font-size: 18px;
+}
+.nav .logo{
+    height: 44px;
+    background-image: url(../img/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.nav .search{
+    height: 44px;
+    background-image: url(../img/search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.nav .setting{
+    height: 44px;
+    background-image: url(../img/setting.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.menuBtn{
+    height: 44px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.menuBtn .line{
+    width: 18px;
+    height: 1px;
+    background-color: white;
+    margin: 6px 0 0 0;
+    transform-origin: left center;
+    transition: all .5s;
+}
+.menuBtn .line:nth-child(1){
+    position: absolute;
+    left: calc(50% - 9px);
+    top: 10px;
+}
+.menuBtn .line:nth-child(2){
+    position: absolute;
+    left: calc(50% - 9px);
+    top: 22px;
+}
+
+.navpage{
+    display: flex;
+    width: 100vw;
+    height: 0vw;
+    transition: all .5s;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 44px;
+}
+.navpage .mainPage{
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px){
+    .nav{
+        justify-content: space-between;
+    }
+    .nav .text, .nav .search{
+        display: none;
+    }
+    .nav a, .nav label{
+        width: 50px;
+    }
+    .nav .menuBtn{
+        order: 1;
+        display: flex;
+        z-index: 100;
+        position: relative;
+    }
+    .nav .logo{
+        position: relative;
+        z-index: 100;
+    }
+    .menuBtn .line{
+        display: block;
+    }
+    .nav .logo{
+        order: 2;
+    }
+    .nav .setting{
+        order: 3;
+    }
+    #choose:checked ~ .menuBtn .line:nth-child(1){
+        transform: rotate(45deg);
+    }
+    #choose:checked ~ .menuBtn .line:nth-child(2){
+        transform: rotate(-45deg);
+    }
+
+     /* 设定复选框为选中状态时，导航页面显示 */
+     #choose:checked ~ .navpage{
+         display: flex;
+         width: 100vw;
+         height: 100vw;
+         position: fixed;
+         left: 0;
+         top: 38px;
+         background-color: rgba(55, 63, 76, 0.9);
+         color: white;
+         flex-direction: column;
+         padding-top: 54px;
+     }
+     .searchInput{
+        margin: 0 28px 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 36px;
+        border-radius: 4px;
+        color: #ccc;
+        background-color: rgba(145, 141, 141, 0.98);
+     }
+     .searchInput .icon{
+         width: 32px;
+         height: 36px;
+         background-image: url(../img/search.svg);
+         background-repeat: no-repeat;
+         background-position: center;
+     }
+     .searchInput input{
+         flex: 1;
+         margin: 0, 10px;
+         height: 100%;
+         background: none;
+         border: none;
+         outline: none;
+         color: white;
+     }
+     hr{
+        border-color: #333;
+     }
+     .navList{
+         margin: 0 28px;
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+     }
+     .navList a{
+         width: 100%;
+         height: 44px;
+         color: #fff;
+         text-align: left;
+         border-bottom: 1px solid #333;
+         line-height: 44px;
+     }
+     .navList a:last-child{
+         border-bottom: none;
+     }
+}
